@@ -11,7 +11,7 @@ function Greeting() {
         dispatch(fetchGreeting());
     }, [dispatch]);
 
-    return <div> <h1>{greeting.sentence}</h1></div>
+    return <div> <h1>Hello world</h1></div>
 }
 
 export default Greeting;

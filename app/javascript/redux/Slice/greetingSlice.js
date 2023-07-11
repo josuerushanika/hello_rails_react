@@ -7,7 +7,7 @@ const initialState = {
     error: null
 };
 
-const BASE_URL = "http://localhost:3000/greetings";
+const BASE_URL = "http://localhost:3000/greetings.json";
 
 export const fetchGreeting = createAsyncThunk(
     "greetings/fetchgreetings",
