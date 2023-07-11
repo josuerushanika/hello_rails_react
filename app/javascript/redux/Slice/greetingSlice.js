@@ -7,13 +7,14 @@ const initialState = {
     error: null
 };
 
-const BASE_URL = "http://localhost:3000/greetings.json";
+const BASE_URL = "/api/greetings";
 
 export const fetchGreeting = createAsyncThunk(
     "greetings/fetchgreetings",
     async () => {
-        const response = await axios.get(BASE_URL);
-        return response.data
+        const response = await fetch(BASE_URL);
+        const data = await response.json()
+        return data
     }
 );
 
@@ -27,10 +28,11 @@ const greetingSlice = createSlice({
             state.status = 'Loading';
         });
 
-        builder.addCase(fetchGreeting.fulfilled, (state, action) => {
-            state.status = 'succeded';
-            state.greetingstore = state.greetingstore.concat(action.payload)
-        });
+        builder.addCase(fetchGreeting.fulfilled, (state, action) =>({
+            ...state,
+            greetingstore: action.payload,
+            status: 'Succeed'
+        }) );
 
         builder.addCase(fetchGreeting.rejected, (state, action) => {
             state.status = 'failed';

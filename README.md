@@ -8,6 +8,8 @@ irb(main):002:0> greetings = Greeting.create(sentence: 'hello man')
 #<Greeting:0x000055d6f845aa18
 ... -->
 
+<!-- Fix bugs yarn add @babel/core @babel/preset-env @babel/preset-react babel-loader --dev
+yarn add v1.22.19 -->
 
 <div align="center">
 
